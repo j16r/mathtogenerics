@@ -2,3 +2,7 @@
 name = "mathtogenerics"
 version = "0.0.0"
 authors = ["John Barker <jebarker@gmail.com>"]
+
+[profile.bench]
+# benchmarks are run in release mode by default
+opt-level = 0
