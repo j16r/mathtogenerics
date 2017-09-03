@@ -1,5 +1,7 @@
 extern crate test;
 
+// Implementations of multiplication from chapter 2.
+
 use self::test::Bencher;
 
 // multiply0 location 338
@@ -13,12 +15,11 @@ fn multiply0(n: i64, a: i64) -> i64 {
 #[bench]
 fn bench_multiply0(b: &mut Bencher) {
     b.iter(|| {
-        let n = test::black_box(1000);
+        let n = test::black_box(10);
         for _ in 1..n {
-            multiply0(9223372036854775807, 2);
-            multiply0(1152921504606846975, 8);
-            multiply0(1073741824, 1073741824);
-            multiply0(1000, 1000);
+            multiply0(3, 15);
+            multiply0(15, 3);
+            multiply0(16, 16);
             multiply0(41, 59);
         }
     })
@@ -42,12 +43,11 @@ fn multiply1(n: i64, a: i64) -> i64 {
 #[bench]
 fn bench_multiply1(b: &mut Bencher) {
     b.iter(|| {
-        let n = test::black_box(1000);
+        let n = test::black_box(10);
         for _ in 1..n {
-            multiply1(9223372036854775807, 2);
-            multiply1(1152921504606846975, 8);
-            multiply1(1073741824, 1073741824);
-            multiply1(1000, 1000);
+            multiply1(3, 15);
+            multiply1(15, 3);
+            multiply1(16, 16);
             multiply1(41, 59);
         }
     })
@@ -77,12 +77,11 @@ fn multiply2a(n: i64, a: i64) -> i64 {
 #[bench]
 fn bench_multiply2a(b: &mut Bencher) {
     b.iter(|| {
-        let n = test::black_box(1000);
+        let n = test::black_box(10);
         for _ in 1..n {
-            multiply2a(9223372036854775807, 2);
-            multiply2a(1152921504606846975, 8);
-            multiply2a(1073741824, 1073741824);
-            multiply2a(1000, 1000);
+            multiply2a(3, 15);
+            multiply2a(15, 3);
+            multiply2a(16, 16);
             multiply2a(41, 59);
         }
     })
@@ -111,12 +110,11 @@ fn multiply2b(n: i64, a: i64) -> i64 {
 #[bench]
 fn bench_multiply2b(b: &mut Bencher) {
     b.iter(|| {
-        let n = test::black_box(1000);
+        let n = test::black_box(10);
         for _ in 1..n {
-            multiply2b(9223372036854775807, 2);
-            multiply2b(1152921504606846975, 8);
-            multiply2b(1073741824, 1073741824);
-            multiply2b(1000, 1000);
+            multiply2b(3, 15);
+            multiply2b(15, 3);
+            multiply2b(16, 16);
             multiply2b(41, 59);
         }
     })
@@ -145,12 +143,11 @@ fn multiply2c(n: i64, a: i64) -> i64 {
 #[bench]
 fn bench_multiply2c(b: &mut Bencher) {
     b.iter(|| {
-        let n = test::black_box(1000);
+        let n = test::black_box(10);
         for _ in 1..n {
-            multiply2c(9223372036854775807, 2);
-            multiply2c(1152921504606846975, 8);
-            multiply2c(1073741824, 1073741824);
-            multiply2c(1000, 1000);
+            multiply2c(3, 15);
+            multiply2c(15, 3);
+            multiply2c(16, 16);
             multiply2c(41, 59);
         }
     })
@@ -181,12 +178,11 @@ fn multiply2d(n: i64, a: i64) -> i64 {
 #[bench]
 fn bench_multiply2d(b: &mut Bencher) {
     b.iter(|| {
-        let n = test::black_box(1000);
+        let n = test::black_box(10);
         for _ in 1..n {
-            multiply2d(9223372036854775807, 2);
-            multiply2d(1152921504606846975, 8);
-            multiply2d(1073741824, 1073741824);
-            multiply2d(1000, 1000);
+            multiply2d(3, 15);
+            multiply2d(15, 3);
+            multiply2d(16, 16);
             multiply2d(41, 59);
         }
     })
@@ -200,9 +196,9 @@ fn mult_acc4(mut r: i64, mut n: i64, mut a: i64) -> i64 {
             if n == 1 {
                 return r;
             }
-            n = half(n);
-            a = a + a;
         }
+        n = half(n);
+        a = a + a;
     }
 }
 
@@ -217,12 +213,11 @@ fn multiply2e(n: i64, a: i64) -> i64 {
 #[bench]
 fn bench_multiply2e(b: &mut Bencher) {
     b.iter(|| {
-        let n = test::black_box(1000);
+        let n = test::black_box(10);
         for _ in 1..n {
-            multiply2e(9223372036854775807, 2);
-            multiply2e(1152921504606846975, 8);
-            multiply2e(1073741824, 1073741824);
-            multiply2e(1000, 1000);
+            multiply2e(3, 15);
+            multiply2e(15, 3);
+            multiply2e(16, 16);
             multiply2e(41, 59);
         }
     })
@@ -243,12 +238,11 @@ fn multiply3(mut n: i64, mut a: i64) -> i64 {
 #[bench]
 fn bench_multiply3(b: &mut Bencher) {
     b.iter(|| {
-        let n = test::black_box(1000);
+        let n = test::black_box(10);
         for _ in 1..n {
-            multiply3(9223372036854775807, 2);
-            multiply3(1152921504606846975, 8);
-            multiply3(1073741824, 1073741824);
-            multiply3(1000, 1000);
+            multiply3(3, 15);
+            multiply3(15, 3);
+            multiply3(16, 16);
             multiply3(41, 59);
         }
     })
@@ -270,12 +264,11 @@ fn multiply4(mut n: i64, mut a: i64) -> i64 {
 #[bench]
 fn bench_multiply4(b: &mut Bencher) {
     b.iter(|| {
-        let n = test::black_box(1000);
+        let n = test::black_box(10);
         for _ in 1..n {
-            multiply4(9223372036854775807, 2);
-            multiply4(1152921504606846975, 8);
-            multiply4(1073741824, 1073741824);
-            multiply4(1000, 1000);
+            multiply4(3, 15);
+            multiply4(15, 3);
+            multiply4(16, 16);
             multiply4(41, 59);
         }
     })
